@@ -3,19 +3,7 @@ import { connect } from 'react-redux';
 import { addProject } from '../../actions/manageProjects'
 
 
-const mapStateToProps = (state, ownProps) => {
-    return {
-        ...state
-    }
-}
 
-const mapDispatchToProps = (dispatch, ownProps) => {
-    return {
-        addProject: (project) => {
-            dispatch(addProject(project))
-        }
-    }
-}
 
 const AddProjectButton = ({onAddProject, updateNewProjectText, projectText}) => {
     return (
@@ -52,7 +40,7 @@ class Dashboard extends Component {
     render() {
         const {projects} = this.props
         return (          
-            <div>
+            <div className="col-md-12 d-block pt-2">
                 {projects.length === 0 && 
                 <div>No projects found</div>
                 }
@@ -67,6 +55,20 @@ class Dashboard extends Component {
                 />
             </div>
         )
+    }
+}
+
+const mapStateToProps = (state, ownProps) => {
+    return {
+        ...state
+    }
+}
+
+const mapDispatchToProps = (dispatch, ownProps) => {
+    return {
+        addProject: (project) => {
+            dispatch(addProject(project))
+        }
     }
 }
 

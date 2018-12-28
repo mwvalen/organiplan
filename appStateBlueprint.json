@@ -1,0 +1,16 @@
+{
+    "projects": [
+        {
+            "name": "name",
+            "id": "id",
+            "color": "color",
+            "status": "active | sidelined",
+            "timeEntries": [
+                {
+                    "startTime": "startTime",
+                    "endTime": "endTime"
+                }
+            ]
+        }
+    ]
+}

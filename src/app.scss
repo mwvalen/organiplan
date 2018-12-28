@@ -1,12 +1,9 @@
-.appContainer {
-    min-height: 100vh;
+$appBar-height: 55px;
+
+body {
+    padding-top: $appBar-height;
 }
 
 .appBar {
-    width: 100%;
-    border-bottom: 1px solid #dddddd;
-}
-
-.main {
-    margin-top: 14px;
+    height: $appBar-height;
 }
