@@ -6,12 +6,10 @@ import Dashboard from './components/Dashboard'
 class App extends Component {
     render() {
         return (
-            <div>
+            <div className="appWrapper">
                     <AppBar />
                 <div className="container-fluid">
-                    <div className="row">
-                        <Dashboard />
-                    </div>
+                    <Dashboard />
                 </div>
             </div>
         )

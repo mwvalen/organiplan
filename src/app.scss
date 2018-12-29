@@ -1,5 +1,9 @@
 $appBar-height: 55px;
 
+html, body {
+    min-height: 100vh !important;
+}
+
 body {
     padding-top: $appBar-height;
 }
@@ -7,3 +11,8 @@ body {
 .appBar {
     height: $appBar-height;
 }
+
+.appWrapper {
+    min-height: calc(100vh - $appBar-height);
+}
+

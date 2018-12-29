@@ -1,9 +1,11 @@
 import React, {Component} from 'react'
 import { connect } from 'react-redux';
 import { addProject } from '../../actions/manageProjects'
+import './styles.scss'
 
-
-
+const sidebarProjectsSort = (a, b) => {
+    return a.name < b.name ? -1 : 1
+}
 
 const AddProjectButton = ({onAddProject, updateNewProjectText, projectText}) => {
     return (
@@ -22,6 +24,23 @@ const AddProjectButton = ({onAddProject, updateNewProjectText, projectText}) => 
     )
 }
 
+const Sidebar = ({projects}) => (
+    <div className="sidebar-sticky h-100 pt-3 pl-4">
+        <h6><a class="nav-title" href="#">All Projects</a></h6>
+        <ul className="nav flex-column">
+            { 
+                projects.sort(sidebarProjectsSort).map(p => (
+                    <li className="nav-item">
+                        <a class="nav-link" href="#">
+                            {p.name}
+                        </a>
+                    </li>
+                ))
+            }
+        </ul>
+    </div>
+)
+
 class Dashboard extends Component {
     constructor(props) {
         super(props)
@@ -39,20 +58,17 @@ class Dashboard extends Component {
     }
     render() {
         const {projects} = this.props
-        return (          
-            <div className="col-md-12 d-block pt-2">
-                {projects.length === 0 && 
-                <div>No projects found</div>
-                }
-                {projects.length > 0 && 
-                    projects.map((project) => {
-                        return (<div>{project.name}</div>)
-                    })
-                }
-                <AddProjectButton onAddProject={this.addProject}
-                                updateNewProjectText={this.updateNewProjectText}
-                                projectText={this.state.newProjectText}
-                />
+        return (    
+            <div className="row main-row">  
+                <div className="col-md-2 bg-light sidebar projects-sidebar h-100">
+                    <Sidebar projects={this.props.projects} />
+                </div>
+                <div className="col-md-10 pt-2">
+                    <AddProjectButton onAddProject={this.addProject}
+                                    updateNewProjectText={this.updateNewProjectText}
+                                    projectText={this.state.newProjectText}
+                    />
+                </div>
             </div>
         )
     }

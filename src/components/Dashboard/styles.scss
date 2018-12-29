@@ -1,0 +1,12 @@
+.projects-sidebar {
+    min-height: calc(100vh - 55px);
+    border-right: 1px solid #dddddd;
+    .nav-link {
+        font-weight: 500;
+        color: #333;
+        margin-left: 1rem;
+    }
+    a:hover {
+        color: red !important;
+    }
+}

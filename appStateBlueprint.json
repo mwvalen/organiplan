@@ -2,7 +2,7 @@
     "projects": [
         {
             "name": "name",
-            "id": "id",
+            "slug": "slug",
             "color": "color",
             "status": "active | sidelined",
             "timeEntries": [
