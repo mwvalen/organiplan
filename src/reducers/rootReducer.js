@@ -1,9 +1,10 @@
 import {
     ADD_PROJECT
 } from '../actions/types'
+import sampleProjects from '../utils/sampleProjects'
 
 const initialState = {
-    projects: []
+    projects: sampleProjects
 }
 
 export default (state = initialState, action) => {

@@ -5,15 +5,15 @@ import 'bootstrap/dist/js/bootstrap.bundle.min';
 import React from 'react'
 import ReactDOM from 'react-dom'
 import { Provider } from 'react-redux'
-import { createStore } from 'redux'
+import { PersistGate } from 'redux-persist/integration/react'
+import { store, persistor } from './store'
 import App from './App'
-import rootReducer from './reducers/rootReducer'
-
-const store = createStore(rootReducer)
 
 ReactDOM.render(
     <Provider store={store}>
-        <App />
+        <PersistGate loading={null} persistor={persistor}>
+            <App />
+        </PersistGate>
     </Provider>, 
     document.getElementById('root')
 )
