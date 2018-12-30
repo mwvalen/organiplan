@@ -1,0 +1,7 @@
+$bulletDiameter: 12px;
+
+.project-bullet {
+    width: $bulletDiameter; 
+    height: $bulletDiameter; 
+    border-radius: 50%; 
+}

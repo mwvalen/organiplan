@@ -5,28 +5,10 @@ import _ from 'lodash';
 import colors from '../../utils/colorList'
 import { addProject } from '../../actions/manageProjects'
 import './styles.scss'
+import Sidebar from './Sidebar'
 
 
-const sidebarProjectsSort = (a, b) => {
-    return a.name < b.name ? -1 : 1
-}
 
-const Sidebar = ({projects}) => (
-    <div className="sidebar-sticky h-100 pt-3 pl-4">
-        <h6><a className="nav-title" href="#">All Projects</a></h6>
-        <ul className="nav flex-column">
-            { 
-                projects.sort(sidebarProjectsSort).map(p => (
-                    <li className="nav-item">
-                        <a className="nav-link" href="#">
-                            {p.name}
-                        </a>
-                    </li>
-                ))
-            }
-        </ul>
-    </div>
-)
 
 const AddProjectButton = ({onAddProject, errorText, updateNewProjectText, projectText}) => {
     
