@@ -1,5 +1,9 @@
+@import '../../utils/styles/variables';
+@import '../../utils/styles/mixins';
+
+
 .projects-sidebar {
-    min-height: calc(100vh - 55px);
+    @include calc(min-height, 100vh - #{$appBar-height});
     border-right: 1px solid #dddddd;
     .nav-link {
         font-weight: 500;

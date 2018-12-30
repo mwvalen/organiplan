@@ -1,4 +1,5 @@
-$appBar-height: 55px;
+@import './utils/styles/variables';
+@import './utils/styles/mixins';
 
 html, body {
     min-height: 100vh !important;
@@ -13,6 +14,6 @@ body {
 }
 
 .appWrapper {
-    min-height: calc(100vh - $appBar-height);
+    @include calc(min-height, #{$appBar-height});
 }
 

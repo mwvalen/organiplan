@@ -26,7 +26,7 @@ const AddProjectButton = ({onAddProject, updateNewProjectText, projectText}) => 
 
 const Sidebar = ({projects}) => (
     <div className="sidebar-sticky h-100 pt-3 pl-4">
-        <h6><a class="nav-title" href="#">All Projects</a></h6>
+        <h6><a className="nav-title" href="#">All Projects</a></h6>
         <ul className="nav flex-column">
             { 
                 projects.sort(sidebarProjectsSort).map(p => (
