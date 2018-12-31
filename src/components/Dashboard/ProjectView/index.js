@@ -58,11 +58,11 @@ export const TimeEntriesTable = ({project}) => {
             </thead>
             <tbody>
             {project.timeEntries.map((te, i)=> 
-                <tr>
-                    <th scope="row">{i+1}</th>
-                    <td>{new Date(te.startTime*1000).toLocaleString()}</td>
-                    <td>{new Date(te.endTime*1000).toLocaleString()}</td>
-                    <td>{msToTime(((te.endTime - te.startTime)*1000))}</td>
+                <tr key={i + 'tr'}>
+                    <th scope="row" key={i + 'th'}>{i+1}</th>
+                    <td key={i + 'td1'}>{new Date(te.startTime*1000).toLocaleString()}</td>
+                    <td key={i + 'td2'}>{new Date(te.endTime*1000).toLocaleString()}</td>
+                    <td key={i + 'td3'}>{msToTime(((te.endTime - te.startTime)*1000))}</td>
                 </tr>
             )
             }
