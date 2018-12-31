@@ -1,0 +1,203 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`The Projects View Component The AddProjectButton element should not regress 1`] = `
+<div
+  className="d-inline-block"
+>
+  <button
+    className="btn btn-outline-primary"
+    data-target="#addProjectModal"
+    data-toggle="modal"
+    type="button"
+  >
+    Add New Project
+  </button>
+  <div
+    aria-hidden="true"
+    aria-labelledby="addNewProject"
+    className="modal fade"
+    id="addProjectModal"
+    role="dialog"
+  >
+    <div
+      className="modal-dialog"
+      role="document"
+    >
+      <div
+        className="modal-content"
+      >
+        <div
+          className="modal-header"
+        >
+          <h5
+            className="modal-title"
+          >
+            Add New Project
+          </h5>
+          <button
+            aria-label="Close"
+            className="close"
+            data-dismiss="modal"
+            type="button"
+          >
+            <span
+              aria-hidden="true"
+            >
+              ×
+            </span>
+          </button>
+        </div>
+        <div
+          className="modal-body"
+        >
+          <label
+            htmlFor="projectTitleInput control-label"
+          >
+            Project Name
+          </label>
+          <input
+            className="form-control"
+            id="projectNameInput"
+            name="projectText"
+            onChange={[Function]}
+            onKeyPress={[Function]}
+            type="text"
+            value="Project Name"
+          />
+          <div
+            className="errorText pt-2"
+          >
+            This is an error
+          </div>
+        </div>
+        <div
+          className="modal-footer"
+        >
+          <button
+            className="btn btn-secondary"
+            data-dismiss="modal"
+            id="closeModal"
+            type="button"
+          >
+            Close
+          </button>
+          <button
+            className="btn btn-primary"
+            onClick={[Function]}
+            type="button"
+          >
+            Add Project
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`The Projects View Component The AddProjectButton should not regress 1`] = `
+<div
+  className="d-inline-block"
+>
+  <button
+    className="btn btn-outline-primary"
+    data-target="#addProjectModal"
+    data-toggle="modal"
+    type="button"
+  >
+    Add New Project
+  </button>
+  <div
+    aria-hidden="true"
+    aria-labelledby="addNewProject"
+    className="modal fade"
+    id="addProjectModal"
+    role="dialog"
+  >
+    <div
+      className="modal-dialog"
+      role="document"
+    >
+      <div
+        className="modal-content"
+      >
+        <div
+          className="modal-header"
+        >
+          <h5
+            className="modal-title"
+          >
+            Add New Project
+          </h5>
+          <button
+            aria-label="Close"
+            className="close"
+            data-dismiss="modal"
+            type="button"
+          >
+            <span
+              aria-hidden="true"
+            >
+              ×
+            </span>
+          </button>
+        </div>
+        <div
+          className="modal-body"
+        >
+          <label
+            htmlFor="projectTitleInput control-label"
+          >
+            Project Name
+          </label>
+          <input
+            className="form-control"
+            id="projectNameInput"
+            name="projectText"
+            onChange={[Function]}
+            onKeyPress={[Function]}
+            type="text"
+            value="Project Name"
+          />
+          <div
+            className="errorText pt-2"
+          >
+            This is an error
+          </div>
+        </div>
+        <div
+          className="modal-footer"
+        >
+          <button
+            className="btn btn-secondary"
+            data-dismiss="modal"
+            id="closeModal"
+            type="button"
+          >
+            Close
+          </button>
+          <button
+            className="btn btn-primary"
+            onClick={[Function]}
+            type="button"
+          >
+            Add Project
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`The Projects View Component The ProjectBubbles element should not regress 1`] = `
+<svg
+  className="w-100"
+  id="bubbles-svg"
+  style={
+    Object {
+      "minHeight": "700px",
+    }
+  }
+/>
+`;

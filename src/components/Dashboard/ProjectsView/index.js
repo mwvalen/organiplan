@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import * as d3 from 'd3'
 
-const AddProjectButton = ({onAddProject, errorText, updateNewProjectText, projectText}) => {
+export const AddProjectButton = ({onAddProject, errorText, updateNewProjectText, projectText}) => {
     
     const inputKeyPress = e => {
         if (e.key === "Enter") onAddProject()
@@ -44,7 +44,7 @@ const AddProjectButton = ({onAddProject, errorText, updateNewProjectText, projec
     )
 }
 
-const ProjectBubbles = ({projects}) => {
+export const ProjectBubbles = ({projects}) => {
     return (
             <svg className="w-100" 
                   id="bubbles-svg" 

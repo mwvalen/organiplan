@@ -16,7 +16,7 @@ function msToTime(duration) {
     return hours + ":" + minutes + ":" + seconds + "." + milliseconds;
 }
 
-const DeleteProjectButton = ({project, deleteProject}) => {
+export const DeleteProjectButton = ({project, deleteProject}) => {
     return (
         <div className='d-inline-block'>
         <button type="button" className="btn btn-outline-primary" data-toggle="modal" data-target="#deleteProjectModal" >
@@ -42,6 +42,32 @@ const DeleteProjectButton = ({project, deleteProject}) => {
                 </div>
         </div>
         </div>
+    )
+}
+
+export const TimeEntriesTable = ({project}) => {
+    return (
+        <table className="table table-hover table-striped">
+            <thead>
+                <tr>
+                <th scope="col">#</th>
+                <th scope="col">Start</th>
+                <th scope="col">End</th>
+                <th scope="col">Total Time</th>
+                </tr>
+            </thead>
+            <tbody>
+            {project.timeEntries.map((te, i)=> 
+                <tr>
+                    <th scope="row">{i+1}</th>
+                    <td>{new Date(te.startTime*1000).toLocaleString()}</td>
+                    <td>{new Date(te.endTime*1000).toLocaleString()}</td>
+                    <td>{msToTime(((te.endTime - te.startTime)*1000))}</td>
+                </tr>
+            )
+            }
+            </tbody>
+        </table>
     )
 }
 
@@ -72,34 +98,14 @@ export class ProjectView extends Component  {
                     <h3 className="my-5 w-100">{project.name}</h3>
                     <br /><br />
                     <div><h5 className="mb-3">Time Entries</h5></div>
-                    <table className="table table-hover table-striped">
-                    <thead>
-                        <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">Start</th>
-                        <th scope="col">End</th>
-                        <th scope="col">Total Time</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                    {project.timeEntries.map((te, i)=> 
-                        <tr>
-                            <th scope="row">{i+1}</th>
-                            <td>{new Date(te.startTime*1000).toLocaleString()}</td>
-                            <td>{new Date(te.endTime*1000).toLocaleString()}</td>
-                            <td>{msToTime(((te.endTime - te.startTime)*1000))}</td>
-                        </tr>
-                    )
-                    }
-                    </tbody>
-                    </table>
+                    <TimeEntriesTable project={project} />
                 </div>            
             </div>
         )
     }
 }
 
-const mapStateToProps = (state, ownProps)=>({
+export const mapStateToProps = (state, ownProps)=>({
     ...state.projects.filter(p => p.slug === ownProps.slug)[0]
 })
 
