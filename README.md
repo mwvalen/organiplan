@@ -25,6 +25,8 @@ Testing with Jest
 
 Add time entry/time tracking functionality
 
+Filter by time period (datepickers, today, this week, this month, etc.) + additional charting/viewing options
+
 Notes, and Emotes on entries
 
 Tooltips on Bubbles & Icons on Projects Sidebar
