@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 import { connect } from 'react-redux';
-import { Route, Link, Switch } from 'react-router-dom';
+import { Route, Link, Switch, withRouter } from 'react-router-dom';
 import slugify from 'slugify';
 import _ from 'lodash';
 import colors from '../../utils/colorList'
@@ -81,20 +81,20 @@ class Dashboard extends Component {
                     <Sidebar projects={projects} />
                 </div>
                 <Switch>
-                <Route exact path='/' 
-                        render= {() => 
-                            <ProjectsView onAddProject={this.addProject.bind(this)}
-                            updateNewProjectText={this.updateNewProjectText.bind(this)}
-                            projectText={this.state.newProjectText}
-                            errorText={this.state.addProjectErrorText}
-                            projects={projects} />
-                        
-                    }/>
-                <Route path='/projects/:slug' 
-                        render= {({match}) => 
-                            <ProjectView slug={match.params.slug} />
-                        
-                        } />
+                    <Route exact path='/' 
+                            render= {() => 
+                                <ProjectsView onAddProject={this.addProject.bind(this)}
+                                updateNewProjectText={this.updateNewProjectText.bind(this)}
+                                projectText={this.state.newProjectText}
+                                errorText={this.state.addProjectErrorText}
+                                projects={projects} />
+                            
+                        }/>
+                    <Route exact path='/projects/:slug' 
+                            render= {({match}) => 
+                                <ProjectView slug={match.params.slug} />
+                            
+                            } />
                </Switch>
             </div>
         )
@@ -115,4 +115,4 @@ const mapDispatchToProps = (dispatch, ownProps) => {
     }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Dashboard)
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Dashboard))

@@ -6,15 +6,9 @@ const AddProjectButton = ({onAddProject, errorText, updateNewProjectText, projec
     const inputKeyPress = e => {
         if (e.key === "Enter") onAddProject()
     }
-    const focusInput = e => {
-        window.setTimeout(function ()
-            {
-                document.getElementById('projectNameInput').focus();
-            }, 0);
-    }
     return (
         <div className='d-inline-block'>
-        <button type="button" className="btn btn-outline-primary" data-toggle="modal" data-target="#addProjectModal" onClick={focusInput} >
+        <button type="button" className="btn btn-outline-primary" data-toggle="modal" data-target="#addProjectModal" >
             Add New Project
         </button> 
         <div className="modal fade" id="addProjectModal" role="dialog" aria-labelledby="addNewProject" aria-hidden="true">
@@ -62,7 +56,7 @@ const ProjectBubbles = ({projects}) => {
 
 class ProjectsView extends Component {
     drawBubbles = () => {
-        let animationDuration = 1500
+        let animationDuration = 1000
         const svg = document.getElementById("bubbles-svg")
         if (svg.innerHTML != '') animationDuration = 0
         svg.innerHTML = ''
@@ -158,7 +152,7 @@ class ProjectsView extends Component {
             .selectAll(".bubble-a")
             .data(bubbleData)
         .enter().append("a")
-            .attr("href", () => "#")
+            .attr("href", (d) => `/projects/${d.slug}`)
             .attr('class', () => 'bubble-a')
         .call (a => {
             a.append("g")
@@ -173,9 +167,6 @@ class ProjectsView extends Component {
                 .attr("fill", d=> "#" + d.color)
                 .attr("opacity", 0.65)
                 g.append('text')
-                .transition()
-                .duration(animationDuration)
-                .delay((d, i) => i * 10)
                 .text(d => d.name)
                 .attr('fill', d => "black")
                 .attr('x', d => d.circleData.cx)
@@ -191,6 +182,7 @@ class ProjectsView extends Component {
     }
     componentDidUpdate(prevProps, prevState) {
         //TODO: update bubbles live when add new project
+        this.drawBubbles(); 
     }
     render() {
         const {onAddProject, errorText, updateNewProjectText, projectText, projects} = this.props
