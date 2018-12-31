@@ -94,8 +94,8 @@ export class ProjectView extends Component  {
                 <div className="row pr-5 d-flex flex-row-reverse">
                     <DeleteProjectButton project={project} deleteProject={this.deleteProject.bind(this)} />
                 </div>
-                <div className="row pt-2 px-5">
-                    <h3 className="my-5 w-100">{project.name}</h3>
+                <div className="row px-5">
+                    <h3 className="mt-2 mb-5 w-100">{project.name}</h3>
                     <br /><br />
                     <div><h5 className="mb-3">Time Entries</h5></div>
                     <TimeEntriesTable project={project} />

@@ -197,7 +197,8 @@ class ProjectsView extends Component {
                         
                     </div>
                 </div>
-                <div className="row pt-5">
+                <div className="row">
+                    <div><h3 className="mt-2 mb-5 pl-5">All Projects</h3></div>
                     <ProjectBubbles projects={projects} />
                 </div>
             </div>
