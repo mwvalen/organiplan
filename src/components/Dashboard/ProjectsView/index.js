@@ -46,7 +46,7 @@ export const AddProjectButton = ({onAddProject, errorText, updateNewProjectText,
 
 export const ProjectBubbles = ({projects}) => {
     return (
-            <svg className="w-100" 
+            <svg className="w-100 pl-4" 
                   id="bubbles-svg" 
                   style={{'minHeight': '700px'}}
                   >
