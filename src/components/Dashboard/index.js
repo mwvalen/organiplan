@@ -7,70 +7,7 @@ import colors from '../../utils/colorList'
 import { addProject } from '../../actions/manageProjects'
 import './styles.scss'
 import Sidebar from './Sidebar'
-
-
-const bubbleDataSort = (a, b) => {
-    return a.circleData.r < b.circleData.r ? 1 : -1
-}
-
-const AddProjectButton = ({onAddProject, errorText, updateNewProjectText, projectText}) => {
-    
-    const inputKeyPress = e => {
-        if (e.key === "Enter") onAddProject()
-    }
-    const focusInput = e => {
-        window.setTimeout(function ()
-            {
-                document.getElementById('projectNameInput').focus();
-            }, 0);
-    }
-    return (
-        <div className='d-inline-block'>
-        <button type="button" className="btn btn-outline-primary" data-toggle="modal" data-target="#addProjectModal" onClick={focusInput}   >
-            Add New Project
-        </button> 
-        <div className="modal fade" id="addProjectModal" role="dialog" aria-labelledby="addNewProject" aria-hidden="true">
-            <div className="modal-dialog" role="document">
-                    <div className="modal-content">
-                        <div className="modal-header">
-                            <h5 className="modal-title">Add New Project</h5>
-                            <button type="button" className="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                        <div className="modal-body">
-                            <label htmlFor="projectTitleInput control-label">Project Name</label>
-                            <input  
-                                className="form-control"
-                                type="text" 
-                                name="projectText" 
-                                onChange={updateNewProjectText} 
-                                value={projectText}
-                                onKeyPress={inputKeyPress}
-                                id="projectNameInput"
-                            />
-                            <div className="errorText pt-2">{errorText}</div>
-                        </div>
-                        <div className="modal-footer">
-                            <button type="button" className="btn btn-secondary" data-dismiss="modal" id="closeModal">Close</button>
-                            <button type="button" className="btn btn-primary" onClick={onAddProject}>Add Project</button>
-                        </div>
-                    </div>
-                </div>
-        </div>
-        </div>
-    )
-}
-
-const ProjectBubbles = ({projects}) => {
-    return (
-            <svg className="w-100" 
-                  id="bubbles-svg" 
-                  style={{'minHeight': '500px'}}
-                  >
-            </svg>
-    )
-}
+import { ProjectsView } from './ProjectsView'
 
 class Dashboard extends Component {
     constructor(props) {
@@ -135,7 +72,10 @@ class Dashboard extends Component {
             this.setState({...this.state, addProjectModalOpen: !this.state.addProjectModalOpen})
     }
     drawBubbles = () => {
+        let animationDuration = 1500
         const svg = document.getElementById("bubbles-svg")
+        if (svg.innerHTML != '') animationDuration = 0
+        svg.innerHTML = ''
         const positionInfo = svg.getBoundingClientRect()
         const svg_width = positionInfo.width
 
@@ -237,27 +177,27 @@ class Dashboard extends Component {
                 .attr("cx", d => d.circleData.cx)
                 .attr("cy", d => d.circleData.cy)
                 .transition()
-                .duration(1500)
+                .duration(animationDuration)
                 .delay((d, i) => i * 10)
                 .attr("r", d => d.circleData.r)
                 .attr("fill", d=> "#" + d.color)
                 .attr("opacity", 0.65)
                 g.append('text')
                 .transition()
-                .duration(1500)
+                .duration(animationDuration)
                 .delay((d, i) => i * 10)
                 .text(d => d.name)
                 .attr('fill', d => "black")
                 .attr('x', d => d.circleData.cx)
                 .attr('y', d => d.circleData.cy+6)
                 .attr('text-anchor', () => "middle")
-                .style('width', d => d.circleData.r * 2 + 'px')
-                
+                .style('width', d => d.circleData.r * 2 + 'px')      
             })
-        })  
+        })
     }
     componentDidMount() {
         this.drawBubbles();
+        window.addEventListener("resize", this.drawBubbles);
     }
     componentDidUpdate(prevProps, prevState) {
         //TODO: update bubbles live when add new project
@@ -269,21 +209,11 @@ class Dashboard extends Component {
                 <div className="col-md-2 bg-light sidebar projects-sidebar h-100">
                     <Sidebar projects={projects} />
                 </div>
-                <div className="col-md-10 pt-3">
-                    <div className="row pr-3">
-                        <div className="col-md-12  d-flex  flex-row-reverse">
-                        <AddProjectButton onAddProject={this.addProject.bind(this)}
-                                updateNewProjectText={this.updateNewProjectText.bind(this)}
-                                projectText={this.state.newProjectText}
-                                errorText={this.state.addProjectErrorText} />
-                           
-                        </div>
-                    </div>
-                    <div className="row pt-5">
-                        <ProjectBubbles projects={projects} />
-                    </div>
-                    
-                </div>
+                <ProjectsView onAddProject={this.addProject.bind(this)}
+                        updateNewProjectText={this.updateNewProjectText.bind(this)}
+                        projectText={this.state.newProjectText}
+                        errorText={this.state.addProjectErrorText}
+                        projects={projects} />
             </div>
         )
     }
