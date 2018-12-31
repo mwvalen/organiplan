@@ -2,7 +2,7 @@ import React from 'react'
 import './styles.scss'
 
 const sidebarProjectsSort = (a, b) => {
-    return a.name < b.name ? -1 : 1
+    return a.name.toLowerCase() < b.name.toLowerCase() ? -1 : 1
 }
 
 const ProjectListing = ({project}) => (

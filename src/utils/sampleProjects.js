@@ -62,7 +62,7 @@ export default [
     {
         name: "Shovel Rocks",
         slug: "shovel-rocks",
-        color: "FFFF00",
+        color: "008000",
         status: "active",
         timeEntries: [
             {
