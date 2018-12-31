@@ -36,3 +36,5 @@ Improve D3 bubble update rendering (add/delete, & responsiveness)
 More test coverage, including mocking
 
 Drag & Drop Planning
+
+Server & Database & Users and stuff
