@@ -158,6 +158,7 @@ class ProjectsView extends Component {
             a.append("g")
             .call(g => {
                 g.append("circle")
+                .attr('class', 'bubble-circle')
                 .attr("cx", d => d.circleData.cx)
                 .attr("cy", d => d.circleData.cy)
                 .transition()

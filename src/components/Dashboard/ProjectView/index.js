@@ -1,20 +1,8 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { Redirect, withRouter } from 'react-router-dom'
-import { deleteProject } from '../../../actions/manageProjects'
-
-function msToTime(duration) {
-    var milliseconds = parseInt((duration % 1000) / 100),
-      seconds = parseInt((duration / 1000) % 60),
-      minutes = parseInt((duration / (1000 * 60)) % 60),
-      hours = parseInt((duration / (1000 * 60 * 60)) % 24);
-  
-    hours = (hours < 10) ? "0" + hours : hours;
-    minutes = (minutes < 10) ? "0" + minutes : minutes;
-    seconds = (seconds < 10) ? "0" + seconds : seconds;
-  
-    return hours + ":" + minutes + ":" + seconds + "." + milliseconds;
-}
+import { setSelectedProject, deleteProject } from '../../../actions/manageProjects'
+import { msToTime } from '../../../helpers/time'
 
 export const DeleteProjectButton = ({project, deleteProject}) => {
     return (
@@ -60,9 +48,9 @@ export const TimeEntriesTable = ({project}) => {
             {project.timeEntries.map((te, i)=> 
                 <tr key={i + 'tr'}>
                     <th scope="row" key={i + 'th'}>{i+1}</th>
-                    <td key={i + 'td1'}>{new Date(te.startTime*1000).toLocaleString()}</td>
-                    <td key={i + 'td2'}>{new Date(te.endTime*1000).toLocaleString()}</td>
-                    <td key={i + 'td3'}>{msToTime(((te.endTime - te.startTime)*1000))}</td>
+                    <td key={i + 'td1'}>{new Date(te.startTime*1).toLocaleString()}</td>
+                    <td key={i + 'td2'}>{new Date(te.endTime*1).toLocaleString()}</td>
+                    <td key={i + 'td3'}>{msToTime(((te.endTime - te.startTime)*1))}</td>
                 </tr>
             )
             }
@@ -78,8 +66,16 @@ export class ProjectView extends Component  {
             shouldRedirect: false
         }
     }
+    componentDidMount() {
+        this.props.setSelectedProject(this.props.slug)
+    }
+    componentDidUpdate(prevProps) {
+        if (prevProps.slug !== this.props.slug) {
+            this.props.setSelectedProject(this.props.slug)
+        }
+    }
+
     deleteProject = () => {
-        console.log('DELETING PROJECT')
         this.props.deleteProject(this.props.slug)
         var closeButton = document.getElementById('closeModal')
         closeButton.click()
@@ -113,6 +109,9 @@ const mapDispatchToProps = (dispatch) => {
     return {
         deleteProject: (slug) => {
             dispatch(deleteProject(slug))
+        },
+        setSelectedProject: slug => {
+            dispatch(setSelectedProject(slug))
         }
     }
 }

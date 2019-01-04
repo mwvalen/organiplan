@@ -5,3 +5,9 @@ $bulletDiameter: 12px;
     height: $bulletDiameter; 
     border-radius: 50%; 
 }
+
+.sidebar-pause-play {
+    &:hover {
+        cursor: pointer;
+    }
+}

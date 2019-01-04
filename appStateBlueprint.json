@@ -12,5 +12,10 @@
                 }
             ]
         }
-    ]
+    ],
+    "currentSession": {
+        "projectSlug": "projectSlug",
+        "startTime": "timestamp",
+        "endTime": "timestamp"
+    }
 }

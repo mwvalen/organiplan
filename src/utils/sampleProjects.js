@@ -6,16 +6,16 @@ export default [
         status: "active",
         timeEntries: [
             {
-                startTime: "1545923460",
-                endTime: "1545927240"
+                startTime: "1545923460000",
+                endTime: "1545927240000"
             },
             {
-                startTime: "1546036800",
-                endTime: "1546040400"
+                startTime: "1546036800000",
+                endTime: "1546040400000"
             },
             {
-                startTime: "1546088400",
-                endTime: "1546089470"
+                startTime: "1546088400000",
+                endTime: "1546089470000"
             },
         ]
     },
@@ -26,16 +26,16 @@ export default [
         status: "active",
         timeEntries: [
             {
-                startTime: "1545841070",
-                endTime: "1545848252"
+                startTime: "1545841070000",
+                endTime: "1545848252000"
             },
             {
-                startTime: "1545862652",
-                endTime: "1545865500"
+                startTime: "1545862652000",
+                endTime: "1545865500000"
             },
             {
-                startTime: "1545905100",
-                endTime: "1545908700"
+                startTime: "1545905100000",
+                endTime: "1545908700000"
             },
         ]
     },
@@ -46,16 +46,16 @@ export default [
         status: "active",
         timeEntries: [
             {
-                startTime: "1545303900",
-                endTime: "1545307500"
+                startTime: "1545303900000",
+                endTime: "1545307500000"
             },
             {
-                startTime: "1545393900",
-                endTime: "1545411900"
+                startTime: "1545393900000",
+                endTime: "1545411900000"
             },
             {
-                startTime: "1545426300",
-                endTime: "1545429900"
+                startTime: "1545426300000",
+                endTime: "1545429900000"
             },
         ]
     },
@@ -66,24 +66,24 @@ export default [
         status: "active",
         timeEntries: [
             {
-                startTime: "1545462300",
-                endTime: "1545463020"
+                startTime: "1545462300000",
+                endTime: "1545463020000"
             },
             {
-                startTime: "1545481020",
-                endTime: "1545491820"
+                startTime: "1545481020000",
+                endTime: "1545491820000"
             },
             {
-                startTime: "1545506220",
-                endTime: "1545513420"
+                startTime: "1545506220000",
+                endTime: "1545513420000"
             },
             {
-                startTime: "1545535020",
-                endTime: "1545541500"
+                startTime: "1545535020000",
+                endTime: "1545541500000"
             },
             {
-                startTime: "1545563100",
-                endTime: "1545565954"
+                startTime: "1545563100000",
+                endTime: "1545565954000"
             },
 
         ]

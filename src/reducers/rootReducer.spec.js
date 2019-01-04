@@ -42,4 +42,9 @@ describe("The root reducer", ()=> {
             expect(state.projects).toContain(testProjects[0])
         })
     })
+    describe("ADD_TIME_ENTRY action", ()=>{
+        it("should work with an array of length 0", ()=>{
+            console.log("TODO test add time entry")
+        })
+    })
 })

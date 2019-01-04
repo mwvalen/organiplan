@@ -26,6 +26,10 @@ class Dashboard extends Component {
             this.setState({...this.state, addProjectErrorText: 'Project Name Can Not Be Blank'})
             return false
         }
+        if (this.state.newProjectText.length > 30) {
+            this.setState({...this.state, addProjectErrorText: 'Project Name Can Not Exceed 30 Characters'})
+            return false
+        }
         if (!RegExp(/^[a-z0-9 ]+$/i).test(this.state.newProjectText)) {
             this.setState({...this.state, addProjectErrorText: 'Project Name Must Only Contain Alphanumeric Characters'})
             return false
@@ -78,7 +82,7 @@ class Dashboard extends Component {
         return (    
             <div className="row main-row">  
                 <div className="col-md-2 bg-light sidebar projects-sidebar h-100">
-                    <Sidebar projects={projects} />
+                    <Sidebar />
                 </div>
                 <Switch>
                     <Route exact path='/' 
