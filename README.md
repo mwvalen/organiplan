@@ -12,7 +12,7 @@ Testing with Jest
 
 The app comes preloaded with sample projects and time entries
 
-Current functionality is add/remove project, and view existing data - project bubbles are sized and sorted by total time (sum of time entries)
+Current functionality is add/remove project, view existing sessions, and time track new sessions - project bubbles are sized and sorted by total time (sum of time entries)
 
 <h2>Setup</h2>
 
@@ -31,8 +31,6 @@ Current functionality is add/remove project, and view existing data - project bu
 
 <br />
 <h2>TODOs and Roadmap</h2>
-
-Add time entry/time tracking functionality
 
 Filter by time period (datepickers, today, this week, this month, etc.) + additional charting/viewing options
 
